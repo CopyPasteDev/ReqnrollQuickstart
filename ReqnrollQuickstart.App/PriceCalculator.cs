@@ -11,6 +11,7 @@ public class PriceCalculator
 
     public decimal CalculatePrice(Dictionary<string, int> basket)
     {
-        throw new NotImplementedException();
+        var item = basket.First();
+        return _priceTable[item.Key];
     }
 }
