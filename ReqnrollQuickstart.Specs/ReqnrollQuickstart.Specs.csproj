@@ -23,4 +23,8 @@
     <None Update="**/.gitkeep" Visible="false" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Features\PriceCalculation.feature" />
+  </ItemGroup>
+
 </Project>
