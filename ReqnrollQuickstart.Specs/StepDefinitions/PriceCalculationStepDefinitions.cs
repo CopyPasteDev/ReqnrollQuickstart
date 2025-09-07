@@ -19,6 +19,16 @@ public class PriceCalculationStepDefinitions
     {
         _basket[product] = quantity;
     }
+    
+    [Given("the client added")]
+    public void GivenTheClientAdded(Table itemsTable)
+    {
+        var items = itemsTable.CreateSet<(string Product, int Quantity)>();
+        foreach (var item in items)
+        {
+            _basket.Add(item.Product, item.Quantity);
+        }
+    }
 
     [When("the basket is prepared")]
     public void WhenTheBasketIsPrepared()
@@ -29,6 +39,6 @@ public class PriceCalculationStepDefinitions
     [Then("the basket price should be ${decimal}")]
     public void ThenTheBasketPriceShouldBe(decimal expectedPrice)
     {
-        expectedPrice.Should().Be(_calculatedPrice);
+        _calculatedPrice.Should().Be(expectedPrice);
     }
 }
